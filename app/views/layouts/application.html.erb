@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project2a</title>
+  <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,18 @@
   </head>
 
   <body>
+
+    <%flash.each do |message_type, message|%>
+     <div class="alert alert-<%= message_type%>"><%=message%></div>
+   <%end%>
+   <%= render 'partials/header' %>
+
+   <h1><%= heading_detail( yield(:heading) ) %></h1>
+<div class="container">
+  <div class="jumbotron">
     <%= yield %>
+  </div>
+</div>
+<%= render 'partials/footer' %>
   </body>
 </html>
