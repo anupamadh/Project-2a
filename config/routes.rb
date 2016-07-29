@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :products
   root 'sessions#new'
   # static pages routes, not connected to models
   get '/about', to: 'static_pages#about'

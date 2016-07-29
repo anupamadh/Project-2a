@@ -19,6 +19,7 @@ class UsersController < ApplicationController
      if current_user?(@user)
        @user = User.find(params[:id])
        @reviews = @user.reviews.paginate(page: params[:page])
+      # @product = @reviews.product.name
      else
        flash[:danger] = "This is not your login. Do you want to login again?"
        redirect_to root_url
