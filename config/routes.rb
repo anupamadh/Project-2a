@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :products
+
   root 'sessions#new'
   # static pages routes, not connected to models
   get '/about', to: 'static_pages#about'
@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   # restful routes
   resources :users, except: [:new]
-  resources :reviews, only: [:create, :destroy]
+  # resources :reviews, only: [:create, :destroy]
+  resources :products do
+    resources :reviews
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
