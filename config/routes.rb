@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
+  root 'products#index'
   # static pages routes, not connected to models
-  get '/about', to: 'static_pages#about'
+  # get '/about', to: 'static_pages#about'
 
   # dynamic routes
   get '/signup', to: 'users#new'

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :name, :email, :password, :phone, presence: true
   validates :email, format: { with: EMAIL_REGEX}
   validates :phone, length: { maximum: 8, message: 'Too long'}
-  validates :chk_box, acceptance: true
+  validates :address, length: { maximum: 50, message: 'Too long'}
   validates :password, length: { minimum: 5, message: 'Too short'}
   validates :email, uniqueness: {case_sensitive: true}
   has_secure_password

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
@@ -26,27 +26,32 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    respond_to do |format|
+    # respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
+        redirect_to root_path
+        # format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        # format.json { render :show, status: :created, location: @product }
       else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        render 'new'
+        # format.html { render :new }
+        # format.json { render json: @product.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    respond_to do |format|
+
+    # respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
+        redirect_to product_path(@product)
+        # format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @product }
       else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        render 'edit'
+        # format.html { render :edit }
+        # format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,15 +60,16 @@ class ProductsController < ApplicationController
   # DELETE /products/1.json
   def destroy
     @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_path
+    # respond_to do |format|
+    #   format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_product
+    def find_product
       @product = Product.find(params[:id])
     end
 
@@ -71,4 +77,3 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :price)
     end
-end

@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160729073704) do
     t.string   "name"
     t.string   "email"
     t.integer  "phone"
-    t.boolean  "chk_box"
+    t.string   "address"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
