@@ -53,14 +53,14 @@ class ProductsController < ApplicationController
         # format.html { render :edit }
         # format.json { render json: @product.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
     @product.destroy
-    redirect_to root_path
+    redirect_to products_path
     # respond_to do |format|
     #   format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
     #   format.json { head :no_content }
@@ -77,3 +77,6 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :price)
     end
+
+
+end
