@@ -1,3 +1,11 @@
+$base-red: rgba(236, 11, 67, 1);
+$base-yellow: rgba(234, 196, 53, 1);
+$base-blue: rgba(52, 89, 149, 1);
+$base-green: rgba(3, 206, 164, 1);
+$base-orange: rgba(251, 77, 61, 1);
+
+$darker-red: darken($base-red, 20%);
+
 $gray-medium-light: #eaeaea;
 
 $navbar-default-color: red;
@@ -229,4 +237,23 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.navbar-inverse {
+  background-color: $base-red;
+  color: white;
+
+  a {
+    color: white;
+  }
+
+  .navbar-brand {
+    color: white;
+  }
+.navbar-toggle:hover, .navbar-toggle:focus  {
+  background-color: $darker-red;
+}
+.navbar-nav > li > a {
+    color: white;
+}
 }

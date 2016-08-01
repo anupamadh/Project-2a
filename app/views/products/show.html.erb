@@ -21,7 +21,7 @@
         <%= link_to "Add Review", new_product_review_path(@product) %> |
         <%= link_to 'Edit', edit_product_path(@product) %> |
         <%= link_to 'Delete', product_path(@product), method: :delete, data: { confirm: "Are you sure?"} %>
-
+<% end %>
       </td>
     </tr>
 
@@ -38,4 +38,3 @@
 </div>
 <% end %>
 <h4><%= link_to 'Back', products_path %></h4>
-<% end %>
