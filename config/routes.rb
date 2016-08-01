@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'products#index'
+  root 'sessions#new'
   # static pages routes, not connected to models
   # get '/about', to: 'static_pages#about'
 

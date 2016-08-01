@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = 'Success login!'
       log_in(user)
       # Log the user in and redirect to the user's show page.
-      redirect_to user
+      redirect_to products_path
     else
       flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
       # debugger

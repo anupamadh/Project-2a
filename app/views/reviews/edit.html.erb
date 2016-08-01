@@ -2,5 +2,5 @@
 
 <%= form_for([@product, @review]) do |f| %>
 <%= f.text_area :content %>
-  <%= f.submit %>
+  <%= f.submit "Edit Review", class: "btn btn-primary" %>
   <% end %>

@@ -12,22 +12,23 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Products",   products_path %></li>
 
         <% if logged_in? %>
-          <!-- <li> -->
-              <%#= link_to "My page", current_user %>
-          <!-- </li> -->
           <li>
               <%= link_to "Logout", logout_path, method: :delete %>
           </li>
         <% else %>
+        <li>
+          <%= link_to "Signup", signup_path %>
+        </li>
         <li><%= link_to "Log in", login_path %></li>
-          <li>
-            <%= link_to "Signup", signup_path %>
-          </li>
+
         <% end %>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+        <li><%= link_to "Add Product",new_product_path %></li>
+          <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
